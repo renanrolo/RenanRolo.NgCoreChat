@@ -1,0 +1,66 @@
+body {
+    background-color: lightgrey !important;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.AvatarCard {
+    background-color: lightgray;
+    width: 150px;
+    height: 140px;
+    margin: 15px;
+    border-radius: 15px 15px 0 0;
+    position: relative;
+    margin-bottom: 50px;
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-image: url('./assets/images/avatars-sheet.jpg') 0 0;
+    background-size: 383%; 
+}
+
+.AvatarCard input {
+    position: absolute;
+    bottom: -34px;
+}
+.AvatarCard1,
+.AvatarCard2,
+.AvatarCard3,
+.AvatarCard4 {
+    background-position-y: 0;
+}
+.AvatarCard5,
+.AvatarCard6,
+.AvatarCard7,
+.AvatarCard8 {
+    background-position-y: 48%;
+}
+.AvatarCard9,
+.AvatarCard10,
+.AvatarCard11,
+.AvatarCard12 {
+    background-position-y: 96%;
+}
+
+
+.AvatarCard1,
+.AvatarCard5,
+.AvatarCard9 {
+  background-position-x: 0;
+}
+.AvatarCard2,
+.AvatarCard6,
+.AvatarCard10 {
+  background-position-x: 33%;
+}
+.AvatarCard3,
+.AvatarCard7,
+.AvatarCard11 {
+  background-position-x: 66%;
+}
+.AvatarCard4,
+.AvatarCard8,
+.AvatarCard12 {
+  background-position-x: 99%;
+}

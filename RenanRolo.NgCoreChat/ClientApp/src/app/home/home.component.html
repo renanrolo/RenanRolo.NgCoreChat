@@ -1,0 +1,48 @@
+<div class="container bg-white">
+  <h1>Bem vindo ao chat!</h1>
+  <p>Esse chat usa:</p>
+  <ul>
+    <li><a href='https://get.asp.net/'>ASP.NET Core</a> e <a
+        href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> no lado do servidor com código para
+      plataforma cruzada.</li>
+    <li><a href='https://angular.io/'>Angular</a> e <a href='http://www.typescriptlang.org/'>TypeScript</a> no lado do
+      cliente.</li>
+    <li><a href='http://getbootstrap.com/'>Bootstrap</a> para layout e estilização.</li>
+  </ul>
+  <br />
+  <br />
+  <p>Para entrar no chat selecione um Nome e um Avatar</p>
+
+  <section>
+
+    <form [formGroup]="entrarChatForm" #form="ngForm" novalidate>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+          <basic-input-container showTip=false label="Nome"
+            errorMessage="Nome deve ter no mínimo 3 e no máximo 12 caraceteres"
+            smalltext="Seu Nome será apresentado para todos">
+            <input type="text" class="form-control" formControlName="Nome" placeholder="Nome" />
+          </basic-input-container>
+        </div>
+      </div>
+
+      <div class="row">
+        <label *ngFor="let avatar of avatares" class="AvatarCard AvatarCard{{avatar}}">
+          <input type="radio" class="form-control" formControlName="AvatarId" [value]="avatar" />
+        </label>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <button (click)="entrarNoChat(entrarChatForm.value)" type="submit" [disabled]="!entrarChatForm.valid"
+            class="btn btn-success">
+            Entrar
+          </button>
+        </div>
+      </div>
+
+    </form>
+
+  </section>
+</div>

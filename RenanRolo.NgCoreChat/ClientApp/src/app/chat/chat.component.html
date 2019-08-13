@@ -1,0 +1,52 @@
+<div id="frame">
+
+	<div id="sidepanel">
+		<div id="profile">
+			<div class="wrap">
+				<img id="profile-img" class="online AvatarCard AvatarCard{{Eu().AvatarId}}" class="online" alt="" />
+				<p>{{Eu().Nome}}</p>
+			</div>
+		</div>
+	
+		<div id="contacts">
+			<ul>
+				<li *ngFor="let usuario of UsuariosOnline()" (click)="CliqueConversarCom(usuario)" class="contact {{ConversarCom?.Id == usuario.Id ? 'active' : ''}}">
+					<div class="wrap">
+						<span class="contact-status  {{usuario.Online === true ? 'online' : ''}}"></span>
+						<img class="AvatarCard AvatarCard{{usuario.AvatarId}}" alt="" />
+						<div class="meta">
+							<p class="name">{{usuario.Nome}}</p>
+
+							<p *ngIf="usuario.ObterUltimaMensagem()" class="preview">
+								<span *ngIf="usuario.ObterUltimaMensagem().De.Id === Eu().Id">Você:</span> {{usuario.ObterUltimaMensagem().Texto}}
+							</p>
+
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+    </div>
+    
+	<div *ngIf="ConversarCom" class="content">
+		<div class="contact-profile">
+			<img class="AvatarCard AvatarCard{{ConversarCom.AvatarId}}" alt="" />
+			<p>{{ConversarCom.Nome}}</p>
+		</div>
+		<div class="messages">
+			<ul *ngIf="ConversarCom.Mensagens">
+				<li *ngFor="let mensagem of ConversarCom.Mensagens" class="{{ClasseMensagem(mensagem)}}" title="{{mensagem.DataHora | date:'d/M/yy, h:mm a'}}">
+					<img class="AvatarCardMini AvatarCard AvatarCard{{mensagem.De.AvatarId}}" alt="" />
+					<p>{{mensagem.Texto}}</p>
+				</li>
+			</ul>
+		</div>
+		<div class="message-input">
+			<div class="wrap">
+				<input type="text" [(ngModel)]="ConversarCom.EscreverMensagem" placeholder="Escreva sua mensagem..." />
+				<button class="submit" type="button" [disabled]="!MensagemValida()" (click)="EnviarMensagem()" >Enviar</button>
+			</div>
+		</div>
+    </div>
+    
+</div>
